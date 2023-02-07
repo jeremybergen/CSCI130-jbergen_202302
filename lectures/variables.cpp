@@ -8,15 +8,34 @@ All about the variables
 using namespace std;
 
 int main() {
-    int num1, num2;
+    int inputSeconds;
+    int numHours, numMins, numSeconds;
 
-    cout << "Please enter two numbers separated by a space: ";
-    cin >> num1 >> num2;
+    cout << "Please enter the number of seconds: ";
+    cin >> inputSeconds;
 
-    cout << num1 << " + " << num2 << " = " << num1 + num2 << endl;
-    cout << num1 << " - " << num2 << " = " << num1 - num2 << endl;
-    cout << num1 << " * " << num2 << " = " << num1 * num2 << endl;
-    cout << num1 << " / " << num2 << " = " << num1 / num2 << endl;
+    numHours = inputSeconds/3600;
+
+    // int num1, num2;
+    // float fNum1, fNum2;
+    // float total;
+
+    // cout << "Please enter two numbers separated by a space: ";
+    // cin >> num1 >> num2;
+
+    // cout << num1 << "%" << num2 << " = " << num1 % num2 << endl;
+
+
+    // total = (((num1 * 42) / num2) + 23) - 5 * (100 * 5);
+
+    // fNum1 = float(num1);
+    // fNum2 = float(num2);
+
+    // cout << num1 << " + " << num2 << " = " << num1 + num2 << endl;
+    // cout << num1 << " - " << num2 << " = " << num1 - num2 << endl;
+    // cout << num1 << " * " << num2 << " = " << num1 * num2 << endl;
+    // cout << num1 << " / " << num2 << " = " << fNum1 / fNum2 << endl;
+    // cout << num1 << " / " << num2 << " = " << num1 / num2 << endl;
 
     // string line3;
 
