@@ -8,13 +8,17 @@ All about the variables
 using namespace std;
 
 int main() {
-    int inputSeconds;
-    int numHours, numMins, numSeconds;
+    unsigned int inputSeconds;
+    unsigned int numHours, numMins, numSeconds;
 
     cout << "Please enter the number of seconds: ";
     cin >> inputSeconds;
 
     numHours = inputSeconds/3600;
+    numMins = (inputSeconds/60)%60;
+    numSeconds = inputSeconds%60;
+
+    cout << "The number of hours:minutes:seconds from " << inputSeconds << " seconds is: " << numHours << ":" << numMins << ":" << numSeconds << endl;
 
     // int num1, num2;
     // float fNum1, fNum2;
