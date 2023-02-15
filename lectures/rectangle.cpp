@@ -18,6 +18,76 @@ step6: print out values
 
 using namespace std;
 
+void promptName(string&);
+void greetPlayer(string);
+void promptSides(int&, int&);
+void calcArea(int&, int&, int&);
+void calcPerim(int&, int&, int&);
+void printValues(int, int, int, int);
+
+int main() {
+    string personName;
+    int s1, s2;
+    int rectangleArea;
+    int rectanglePerim;
+    //prompt for name
+    promptName(personName);
+
+    //greet name
+    greetPlayer(personName);
+
+    //Prompt sides of rectangle
+    // s1 = promptSides();
+    // s2 = promptSides();
+    promptSides(s1, s2);
+
+    // cout << "DEBUG: s1: " << s1 << endl;
+    // cout << "DEBUG: s2: " << s2 << endl;
+
+    //calc area
+    calcArea(s1, s2, rectangleArea);
+
+    //calc perimeter
+    calcPerim(s1, s2, rectanglePerim);
+
+    // cout << "DEBUG: area: " << rectangleArea << endl;
+    // cout << "DEBUG: perim: " << rectanglePerim << endl;
+
+    printValues(rectangleArea, rectanglePerim, s1, s2);
+
+    return 0;
+}
+
+void promptName(string& playerName) {
+    cout << "Please enter your name: ";
+    getline(cin, playerName);
+}
+
+void greetPlayer(string name) {
+    cout << "Welcome " << name << " to our rectangle calculator" << endl;
+}
+
+void promptSides(int& side1, int& side2) {
+    cout << "Please enter the two sides of your rectangle: ";
+    cin >> side1 >> side2;
+}
+
+void calcArea(int& side1, int& side2, int& area) {
+    area = side1 * side2;
+}
+
+void calcPerim(int& side1, int& side2, int& perimeter) {
+    perimeter = (2 * side1) + (2 * side2);
+}
+
+void printValues(int area, int perimeter, int side1, int side2) {
+    printf("The rectangle with sides %d and %d\nhas an area of %d and a perimeter of %d\n", side1, side2, area, perimeter);
+    /*
+    cout << "The rectangle with sides " << side1 << " and " << side2 << endl;
+    cout << "has an area of " << area << " and a perimeter of " << perimeter << endl;
+    */
+}
+
 // string promptName() {
 //     string playerName;
 //     cout << "Please enter your name: ";
@@ -52,63 +122,23 @@ using namespace std;
 //     */
 // }
 
-int calcArea(int side1, int side2) {
-    cout << "Inside int calcArea" << endl;
-    int area;
-    area = side1 * side2;
-    return area;
-}
+// int calcArea(int side1, int side2) {
+//     cout << "Inside int calcArea" << endl;
+//     int area;
+//     area = side1 * side2;
+//     return area;
+// }
 
-float calcArea(float side1, float side2) {
-    cout << "Inside float calcArea" << endl;
-    float area;
-    area = side1 * side2;
-    return area;
-}
+// float calcArea(float side1, float side2) {
+//     cout << "Inside float calcArea" << endl;
+//     float area;
+//     area = side1 * side2;
+//     return area;
+// }
 
-float calcArea(string side1, string side2) {
-    cout << "Inside string calcArea" << endl;
-    float area;
-    area = atof(side1.c_str()) * atof(side2.c_str());
-    return area;
-}
-
-int main() {
-    string s1, s2;
-    float area;
-
-    s1 = "42.53";
-    s2 = "15.12";
-    area = calcArea(s1, s2);
-
-    cout << "The area is: " << area << endl;
-    // string personName;
-    // int s1, s2;
-    // int rectangleArea;
-    // int rectanglePerim;
-    // //prompt for name
-    // personName = promptName();
-
-    // //greet name
-    // greetPlayer(personName);
-
-    // //Prompt sides of rectangle
-    // s1 = promptSides();
-    // s2 = promptSides();
-
-    // // cout << "DEBUG: s1: " << s1 << endl;
-    // // cout << "DEBUG: s2: " << s2 << endl;
-
-    // //calc area
-    // rectangleArea = calcArea(s1, s2);
-
-    // //calc perimeter
-    // rectanglePerim = calcPerim(s1, s2);
-
-    // // cout << "DEBUG: area: " << rectangleArea << endl;
-    // // cout << "DEBUG: perim: " << rectanglePerim << endl;
-
-    // printValues(rectangleArea, rectanglePerim, s1, s2);
-
-    return 0;
-}
+// float calcArea(string side1, string side2) {
+//     cout << "Inside string calcArea" << endl;
+//     float area;
+//     area = atof(side1.c_str()) * atof(side2.c_str());
+//     return area;
+// }
