@@ -6,6 +6,7 @@ Dinner decision program
 #include <iostream>
 #include <string>
 #include <random>
+#include <cassert>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ void promptName(string&);
 void greetVictim(string);
 void getInfo(int&, int&, int&);
 string chooseLocation(int, int, int);
+void tests();
 
 int main() {
     string victimName;
@@ -20,6 +22,8 @@ int main() {
     string whereToGo;
 
     srand(time(0));
+
+    tests();
 
     promptName(victimName);
     greetVictim(victimName);
@@ -35,6 +39,15 @@ int main() {
     cout << "Your next meal will be...(drumroll...............) " << endl << whereToGo << endl;
 
     return 0;
+}
+
+void tests() {
+    string result;
+    result = chooseLocation(0, 0, 0);
+    assert(result == "Bravo's Pizza" || result == "Dollar Store" || result == "Zoup");
+    result = chooseLocation(50, 50, 50);
+    assert(result == "Buffalo Wild Wings" || result == "Olive Garden" || result == "iHop");
+    cout << "All test cases passed" << endl;
 }
 
 string chooseLocation(int distance, int price, int temperature) {
