@@ -7,7 +7,32 @@ We are spinnin' round and round
 
 using namespace std;
 
-int main() {
+int main(int argc, char *argv[]) {
+    char inputChar = 'y';
+
+    do {
+        cout << "Press y to quit: ";
+        cin >> inputChar;
+        if (inputChar != 'y' && inputChar != 'Y') {
+            cout << "You didn't follow the rules so try again..." << endl;
+        }
+    } while(inputChar != 'y' && inputChar != 'Y');
+    // while(inputChar != 'y' && inputChar != 'Y') {
+    //     cout << "Press y to quit: ";
+    //     cin >> inputChar;
+    //     if (inputChar != 'y' && inputChar != 'Y') {
+    //         cout << "You didn't follow the rules so try again..." << endl;
+    //     }
+    // }
+    // int counter = 0;
+    // while(counter != 50) {
+    //     cout << counter << ": Hello World" << endl;
+    //     counter++;
+    // }
+
+    // for (int i = 0; i < 10; i++) {
+    //     cout << i << ": Hello World" << endl;
+    // }
     // int insideFor;
 
     // insideFor = 0;
@@ -34,14 +59,14 @@ int main() {
     //     // cout << "insideFor: " << insideFor << endl;
     //     // insideFor++;
     // }
-    for (int i = 0 ; i < 10; i++) {
-        if (i%2 == 0) {
-            continue;
-        }
-        cout << i << ": Hello World" << endl;
-    }
+    // for (int i = 0; i < 10; i++) {
+    //     if (i%2 == 0) {
+    //         continue;
+    //     }
+    //     cout << i << ": Hello World" << endl;
+    // }
 
-    cout << "After for loop" << endl;
+    // cout << "After for loop" << endl;
     // cout << "i is now: " << i << endl;
 
     return 0;
