@@ -8,16 +8,81 @@ Arrays!!!
 
 using namespace std;
 
+size_t getArraySize();
+void populateArray(int[], size_t);
+void printArray(int[], size_t);
+
 int main(int argc, char *argv[]) {
-    unsigned int arrSize = 10;
+    size_t arrSize = 10;
+    arrSize = getArraySize();
     int nums[arrSize];
 
-    cout << "Please enter a new array size: ";
-    cin >> arrSize;
+    // int *ptr1;
+    // cout << "nums: " << nums << endl;
+    // cout << "nums[0]: " << &nums[0] << endl;
 
-    for (unsigned int i = 0; i < arrSize; i++) {
-        nums[i] = -1;
+    populateArray(nums, arrSize);
+
+    printArray(nums, arrSize);
+
+
+
+    return 0;
+}
+
+void printArray(int numbers[], size_t arrSize) {
+    for (size_t i = 0; i < arrSize; i++) {
+        cout << "numbers[" << i << "]: " << numbers[i] << endl;
     }
+}
+
+void populateArray(int numbers[], size_t arrSize) {
+    for (size_t i = 0; i < arrSize; i++) {
+        cout << "Please enter a number: ";
+        cin >> numbers[i];
+    }
+}
+
+size_t getArraySize() {
+    size_t arrSize;
+    cout << "Please enter the array size: ";
+    cin >> arrSize;
+    return arrSize;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // ptr1 = nums + arrSize - 1;
+    // for (int i = 0; i < arrSize; i++) {
+    //     cout << "*ptr1: " << *ptr1 << endl;
+    //     ptr1--;
+    // }
+
+    // for(int i = 0; i < arrSize; i++) {
+    //     cout << "&nums[" << i << "]: " << &nums[i] << endl;
+    // }
+    // cout << "&nums[0]: " << &nums[0] << endl;
+    // cout << "&nums[1]: " << &nums[1] << endl;
+    // cout << "&nums[2]: " << &nums[2] << endl;
+    // cout << "&nums[3]: " << &nums[3] << endl;
+    // cout << "&nums[4]: " << &nums[4] << endl;
+
+    // cout << "The size of nums is: " << sizeof(nums)/sizeof(char) << endl;
+
+    // for (unsigned int i = 0; i < arrSize; i++) {
+    //     nums[i] = -1;
+    // }
 
     // // nums[0] = 42;
     // // nums[1] = 15;
@@ -87,6 +152,3 @@ int main(int argc, char *argv[]) {
     // ptr++;
     // cout << "*ptr: " << *ptr << endl;
     // ptr++;
-
-    return 0;
-}
