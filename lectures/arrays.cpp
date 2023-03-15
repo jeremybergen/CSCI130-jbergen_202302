@@ -5,6 +5,7 @@ Arrays!!!
 */
 #include <iostream>
 #include <string>
+#include <random>
 
 using namespace std;
 
@@ -12,43 +13,75 @@ size_t getArraySize();
 void populateArray(int[], size_t);
 void printArray(int[], size_t);
 
+//                 char **argv
 int main(int argc, char *argv[]) {
-    size_t arrSize = 10;
-    arrSize = getArraySize();
-    int nums[arrSize];
+    size_t arrSize = 200000000;
+    int *largeNums = new int[arrSize];
 
-    // int *ptr1;
-    // cout << "nums: " << nums << endl;
-    // cout << "nums[0]: " << &nums[0] << endl;
+    // cout << "The size of the array is: " << sizeof(largeNums) << endl;
+    for(size_t i = 0; i < arrSize; i++) {
+        *(largeNums + i) = i + 100;
+        //largeNums[i] = "random()";
+    }
 
-    populateArray(nums, arrSize);
+    for(size_t i = 0; i < 10; i++) {
+        // cout << "largeNums[" << i << "]: " << largeNums[i] << endl;
+        cout << "*(largeNums + " << i << "): " << *(largeNums + i) << endl;
+    }
 
-    printArray(nums, arrSize);
+    delete[] largeNums;
+    // int num1;
+    // int *heapInt = new int;
+
+    // cout << "&num1: " << &num1 << endl;
+    // cout << "&heapInt: " << &heapInt << endl;
+    // cout << "heapInt: " << heapInt << endl;
+
+    // delete heapInt;
+
+    // int largeNums[2000001];
+
+    // cout << "The size of the array is: " << sizeof(largeNums) << endl;
+
+    // size_t arrSize = 10;
+    // arrSize = getArraySize();
+    // int nums[arrSize];
+
+    // cout << "The size of the array is: " << sizeof(nums) << endl;
+
+    // // int *ptr1;
+    // // cout << "nums: " << nums << endl;
+    // // cout << "nums[0]: " << &nums[0] << endl;
+
+    // populateArray(nums, arrSize);
+
+    // printArray(nums, arrSize);
 
 
 
     return 0;
 }
 
-void printArray(int numbers[], size_t arrSize) {
-    for (size_t i = 0; i < arrSize; i++) {
-        cout << "numbers[" << i << "]: " << numbers[i] << endl;
-    }
-}
+// void printArray(int numbers[], size_t arrSize) {
+//     for (size_t i = 0; i < arrSize; i++) {
+//         cout << "numbers[" << i << "]: " << numbers[i] << endl;
+//     }
+// }
 
-void populateArray(int numbers[], size_t arrSize) {
-    for (size_t i = 0; i < arrSize; i++) {
-        cout << "Please enter a number: ";
-        cin >> numbers[i];
-    }
-}
+// void populateArray(int numbers[], size_t arrSize) {
+//     cout << "The size of the array is: " << sizeof(numbers) << endl;
+//     for (size_t i = 0; i < arrSize; i++) {
+//         cout << "Please enter a number: ";
+//         cin >> numbers[i];
+//     }
+// }
 
-size_t getArraySize() {
-    size_t arrSize;
-    cout << "Please enter the array size: ";
-    cin >> arrSize;
-    return arrSize;
-}
+// size_t getArraySize() {
+//     size_t arrSize;
+//     cout << "Please enter the array size: ";
+//     cin >> arrSize;
+//     return arrSize;
+// }
 
 
 
