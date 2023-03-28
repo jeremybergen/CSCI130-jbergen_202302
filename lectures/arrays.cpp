@@ -9,40 +9,71 @@ Arrays!!!
 
 using namespace std;
 
-void printArray(int[], size_t);
+template <class T1>
+void printArray(T1[], size_t);
+
+template <class T1>
+void bubbleSort(T1[], size_t);
 
 //                 char **argv
 int main(int argc, char *argv[]) {
     size_t arrSize = 5;
-    int nums[arrSize];
 
-    nums[0] = 42;
-    nums[1] = 15;
-    nums[2] = 23;
-    nums[3] = 9000;
-    nums[4] = -15;
+    cout << "How many numbers do you want to store? ";
+    cin >> arrSize;
 
+    string nums[arrSize];
 
-    cout << "Original Array: " << endl;
-    printArray(nums, arrSize);
-
-    for (size_t i = 0; i < arrSize-1; i++) {
-        if (nums[i] <= nums[i+1]) {
-            int tmpNum;
-            tmpNum = nums[i];
-            nums[i] = nums[i+1];
-            nums[i+1] = tmpNum;
-        }
+    for (size_t i = 0; i < arrSize; i++) {
+        cout << "Please enter a number: ";
+        cin >> nums[i];
     }
 
-    cout << "First Iteration: " << endl;
-    printArray(nums, arrSize);
+    // nums[0] = 42;
+    // nums[1] = 23;
+    // nums[2] = 15;
+    // nums[3] = 9000;
+    // nums[4] = -15;
+
+
+    cout << "Start:\t";
+    printArray<string>(nums, arrSize);
+
+    bubbleSort<string>(nums, arrSize);
+
+
 
 
     return 0;
 }
 
-void printArray(int numbers[], size_t arrSize) {
+template <class T1>
+void bubbleSort(T1 nums[], size_t arrSize) {
+    // int numIterations = 0;
+    for(size_t j = 0; j < arrSize; j++) {
+        bool swapped = false;
+        // numIterations = 1;
+        for (size_t i = 0; i < arrSize-1-j; i++) {
+            if (nums[i] >= nums[i+1]) {
+                swapped = true;
+                T1 tmpNum;
+                tmpNum = nums[i];
+                nums[i] = nums[i+1];
+                nums[i+1] = tmpNum;
+            }
+            // numIterations++;
+        }
+        // cout << "The number of iterations is: " << numIterations << endl;
+        if(!swapped) {
+            break;
+        }
+        cout << j+1 << ":\t";
+        printArray<T1>(nums, arrSize);
+    }
+}
+
+template <class T1>
+void printArray(T1 numbers[], size_t arrSize) {
     for(size_t i = 0; i < arrSize; i++) {
         cout << numbers[i] << " ";
     }
