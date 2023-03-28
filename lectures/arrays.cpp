@@ -9,27 +9,148 @@ Arrays!!!
 
 using namespace std;
 
-size_t getArraySize();
-void populateArray(int[], size_t);
 void printArray(int[], size_t);
 
 //                 char **argv
 int main(int argc, char *argv[]) {
-    size_t arrSize = 200000000;
-    int *largeNums = new int[arrSize];
+    size_t arrSize = 5;
+    int nums[arrSize];
 
-    // cout << "The size of the array is: " << sizeof(largeNums) << endl;
+    nums[0] = 42;
+    nums[1] = 15;
+    nums[2] = 23;
+    nums[3] = 9000;
+    nums[4] = -15;
+
+
+    cout << "Original Array: " << endl;
+    printArray(nums, arrSize);
+
+    for (size_t i = 0; i < arrSize-1; i++) {
+        if (nums[i] <= nums[i+1]) {
+            int tmpNum;
+            tmpNum = nums[i];
+            nums[i] = nums[i+1];
+            nums[i+1] = tmpNum;
+        }
+    }
+
+    cout << "First Iteration: " << endl;
+    printArray(nums, arrSize);
+
+
+    return 0;
+}
+
+void printArray(int numbers[], size_t arrSize) {
     for(size_t i = 0; i < arrSize; i++) {
-        *(largeNums + i) = i + 100;
-        //largeNums[i] = "random()";
+        cout << numbers[i] << " ";
     }
+    cout << endl;
+}
 
-    for(size_t i = 0; i < 10; i++) {
-        // cout << "largeNums[" << i << "]: " << largeNums[i] << endl;
-        cout << "*(largeNums + " << i << "): " << *(largeNums + i) << endl;
-    }
 
-    delete[] largeNums;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // int nums[5];
+
+    // int *myNums;
+    // myNums = new int[5];
+    
+    // int *myNums2 = new int[5];
+
+    // delete[] myNums;
+    // delete[] myNums2;
+    // cout << "argc: " << argc << endl;
+
+    // for(int i = 0; i < argc; i++) {
+    //     cout << "argv[" << i << "]: " << argv[i] << endl;
+    // }
+
+    // if (argc >= 2 && (string)argv[1] == "test") {
+    //     // This should only run when I pass test as an argument (ex: ./arrays.out test)
+    //     cout << "We are running tests" << endl;
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // int board[3][3];
+
+    // cout << "board: " << board << endl;
+    
+    // for(int i = 0; i < 3; i++) {
+    //     for(int j = 0; j < 3; j++) {
+    //         cout << "&board[i][j]: " << &board[i][j] << endl;;
+    //     }
+    // }
+
+    // for(int i = 0; i < 3; i++) {
+    //     for(int j = 0; j < 3; j++) {
+    //         board[i][j] = ' ';
+    //     }
+    // }
+
+    // board[1][1] = 'X';
+    // board[2][0] = 'O';
+    // board[0][0] = 'X';
+    // board[2][2] = 'O';
+    // board[2][1] = 'X';
+    // board[0][1] = 'O';
+
+    // cout << "-------" << endl;
+    // for(int i = 0; i < 3; i++) {
+    //     cout << "|";
+    //     for(int j = 0; j < 3; j++) {
+    //         cout << board[i][j] << "|";
+    //     }
+    //     cout << endl;
+    //     cout << "-------" << endl;
+    // }
+    // size_t arrSize = 200000000;
+    // int *largeNums = new int[arrSize];
+
+    // // cout << "The size of the array is: " << sizeof(largeNums) << endl;
+    // for(size_t i = 0; i < arrSize; i++) {
+    //     *(largeNums + i) = i + 100;
+    //     //largeNums[i] = "random()";
+    // }
+
+    // for(size_t i = 0; i < 10; i++) {
+    //     // cout << "largeNums[" << i << "]: " << largeNums[i] << endl;
+    //     cout << "*(largeNums + " << i << "): " << *(largeNums + i) << endl;
+    // }
+
+    // delete[] largeNums;
     // int num1;
     // int *heapInt = new int;
 
@@ -56,12 +177,6 @@ int main(int argc, char *argv[]) {
     // populateArray(nums, arrSize);
 
     // printArray(nums, arrSize);
-
-
-
-    return 0;
-}
-
 // void printArray(int numbers[], size_t arrSize) {
 //     for (size_t i = 0; i < arrSize; i++) {
 //         cout << "numbers[" << i << "]: " << numbers[i] << endl;
