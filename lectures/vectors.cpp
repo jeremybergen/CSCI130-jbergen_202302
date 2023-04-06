@@ -6,24 +6,58 @@ Vectors
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
-void readNumbers(vector<int>&, int);
+void numberOfNumbers(int&);
+
+template <class T1>
+void readNumbers(vector<T1>&, int);
+
+template <typename T1>
+void printVector(vector<T1>&);
 
 int main(int argc, char *argv[]) {
     int counter = 5;
-    vector<int> myNums;
+    vector<float> myNums;
 
-    readNumbers(myNums, counter);
+    numberOfNumbers(counter);
+    readNumbers<float>(myNums, counter);
+
+    printVector<float>(myNums);
+
+    sort(myNums.begin(), myNums.end());
+
+    printVector<float>(myNums);
 
     return 0;
 }
 
-void readNumbers(vector<int>& myNumbers, int count) {
-    int inputNumber;
+template <typename T1>
+void printVector(vector<T1>& myVector) {
+    // for(size_t i = 0; i < myVector.size(); i++) {
+    //     cout << myVector.at(i) << " ";
+    // }
+    for(auto it = myVector.begin(); it != myVector.end(); it++) {
+        cout << *it << " ";
+    }
+    // for(auto elem: myVector) {
+    //     cout << elem << " ";
+    // }
+    cout << endl;
+}
+
+void numberOfNumbers(int& nums) {
+    cout << "How many numbers do you want to read in? ";
+    cin >> nums;
+}
+
+template <class T1>
+void readNumbers(vector<T1>& myNumbers, int count) {
+    T1 inputNumber;
     for(int i = 0; i < count; i++) {
-        cout << "Please enter a number: ";
+        cout << "Please enter something: ";
         cin >> inputNumber;
 
         myNumbers.push_back(inputNumber);
@@ -117,3 +151,5 @@ void readNumbers(vector<int>& myNumbers, int count) {
     // for(auto it = firstName.begin(); it != firstName.end(); it++) {
     //     cout << "*it: " << *it << endl;
     // }
+
+
