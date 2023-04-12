@@ -17,29 +17,39 @@ void bubbleSort(T1[], size_t);
 
 //                 char **argv
 int main(int argc, char *argv[]) {
-    size_t arrSize = 5;
+    int myNums[] = {0, 1, 23, 4, 5};
+    int myNums[5] = {0, 1, 23, 4, 5};
 
-    cout << "How many numbers do you want to store? ";
-    cin >> arrSize;
-
-    string nums[arrSize];
-
-    for (size_t i = 0; i < arrSize; i++) {
-        cout << "Please enter a number: ";
-        cin >> nums[i];
-    }
-
-    // nums[0] = 42;
-    // nums[1] = 23;
-    // nums[2] = 15;
-    // nums[3] = 9000;
-    // nums[4] = -15;
+    // size_t arrSize;
+    // cout << "How big do you want your array? ";
+    // cin >> arrSize;
+    
+    // int myNums[arrSize];
 
 
-    cout << "Start:\t";
-    printArray<string>(nums, arrSize);
+    // size_t arrSize = 5;
 
-    bubbleSort<string>(nums, arrSize);
+    // cout << "How many numbers do you want to store? ";
+    // cin >> arrSize;
+
+    // string nums[arrSize];
+
+    // for (size_t i = 0; i < arrSize; i++) {
+    //     cout << "Please enter a number: ";
+    //     cin >> nums[i];
+    // }
+
+    // // nums[0] = 42;
+    // // nums[1] = 23;
+    // // nums[2] = 15;
+    // // nums[3] = 9000;
+    // // nums[4] = -15;
+
+
+    // cout << "Start:\t";
+    // printArray<string>(nums, arrSize);
+
+    // bubbleSort<string>(nums, arrSize);
 
 
 
