@@ -9,14 +9,21 @@ File I/O
 
 using namespace std;
 
+void readData(fstream&, string[], int&);
+void writeData(fstream&, string[], int);
+
 int main(int argc, char *argv[]) {
     // int num1, num2, num3, num4, num5;
     string nums[100];
     int numLines = 0;
-    ifstream fin;
-    ofstream fout;
+    // ifstream fin;
+    // ofstream fout;
 
-    fin.open("files/input.txt");
+    fstream fs;
+    
+    fs.open("files/fstest.txt", fstream::in | fstream::out | fstream::app);
+
+    // fin.open("files/input.txt");
 
     //Windows way
     // fin.open("files\\input.txt");
@@ -24,7 +31,7 @@ int main(int argc, char *argv[]) {
     // absolute path on linux, normally don't use
     // fin.open("/home/jbergen/projects/CSCI130-jbergen/lectures/files/input.txt");
     
-    fout.open("files/output.txt");
+    // fout.open("files/output.txt");
     // fout.open("files\\output.txt");
 
     // absolute path on linux, normally don't use
@@ -38,16 +45,29 @@ int main(int argc, char *argv[]) {
     // fout << "num4: " << num4 << endl;
     // fout << "num5: " << num5 << endl;
 
-    while(fin >> nums[numLines]) {
+    readData(fs, nums, numLines);
+    cout << "We are at: " << fs.tellg() << endl;
+    fs.seekg(0);
+    cout << "We are at: " << fs.tellg() << endl;
+    writeData(fs, nums, numLines);
+
+    // fin.close();
+    // fout.close();
+    fs.close();
+    return 0;
+}
+
+void writeData(fstream& fout, string nums[], int numLines) {
+    for(int i = 0; i < numLines; i++) {
+        fout << "nums[" << i << "]: " << nums[i] << endl;
+    }
+}
+
+void readData(fstream& fin, string nums[], int& numLines) {
+    // while(getline(fin, nums[numLines])) {
+    while(!fin.eof()) {
+        getline(fin, nums[numLines]);
+        // if(fin >> nums[numLines])
         numLines++;
     }
-
-    for(int i = 0; i < numLines; i++) {
-        cout << "nums[" << i << "]: " << nums[i] << endl;
-    }
-
-    fin.close();
-    fout.close();
-
-    return 0;
 }
